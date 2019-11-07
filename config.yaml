@@ -118,7 +118,7 @@ metadata:
   name: dgraph-zero
 spec:
   serviceName: "dgraph-zero"
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: dgraph-zero
@@ -195,7 +195,7 @@ metadata:
   name: dgraph-alpha
 spec:
   serviceName: "dgraph-alpha"
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: dgraph-alpha
