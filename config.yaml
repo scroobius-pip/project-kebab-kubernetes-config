@@ -279,9 +279,17 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-        envFrom:
-        - configMapRef:
-            name: env-values
+          - name: AWS_ACCESS_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: env-values
+                key: AWS_ACCESS_KEY
+          - name: AWS_SECRET_KEY
+            valueFrom:
+              configMapKeyRef:
+              name: env-values
+              key: AWS_SECRET_KEY
+        
         command:
           - bash
           - "-c"
