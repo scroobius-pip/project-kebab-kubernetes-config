@@ -8,24 +8,24 @@
 #       dgraph-alpha-public - To connect clients and for HTTP APIs
 #       dgraph-ratel-public - For Dgraph UI
 #       dgraph-alpha-x-http-public - Use for debugging & profiling
-apiVersion: v1
-kind: Service
-metadata:
-  name: dgraph-zero-public
-  labels:
-    app: dgraph-zero
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 5080
-    targetPort: 5080
-    name: zero-grpc
-  - port: 6080
-    targetPort: 6080
-    name: zero-http
-  selector:
-    app: dgraph-zero
----
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: dgraph-zero-public
+#   labels:
+#     app: dgraph-zero
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 5080
+#     targetPort: 5080
+#     name: zero-grpc
+#   - port: 6080
+#     targetPort: 6080
+#     name: zero-http
+#   selector:
+#     app: dgraph-zero
+# ---
 apiVersion: v1
 kind: Service
 metadata:
@@ -62,21 +62,21 @@ spec:
 #   selector:
 #     statefulset.kubernetes.io/pod-name: dgraph-alpha-0
 # ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: dgraph-ratel-public
-  labels:
-    app: dgraph-ratel
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 8000
-    targetPort: 8000
-    name: ratel-http
-  selector:
-    app: dgraph-ratel
----
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: dgraph-ratel-public
+#   labels:
+#     app: dgraph-ratel
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 8000
+#     targetPort: 8000
+#     name: ratel-http
+#   selector:
+#     app: dgraph-ratel
+# ---
 # This is a headless service which is necessary for discovery for a dgraph-zero StatefulSet.
 # https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#creating-a-statefulset
 apiVersion: v1
