@@ -118,7 +118,7 @@ metadata:
   name: dgraph-zero
 spec:
   serviceName: "dgraph-zero"
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: dgraph-zero
@@ -165,9 +165,9 @@ spec:
             ordinal=${BASH_REMATCH[1]}
             idx=$(($ordinal + 1))
             if [[ $ordinal -eq 0 ]]; then
-              exec dgraph zero --my=$(hostname -f):5080 --idx $idx --replicas 3
+              exec dgraph zero --my=$(hostname -f):5080 --idx $idx --replicas 1
             else
-              exec dgraph zero --my=$(hostname -f):5080 --peer dgraph-zero-0.dgraph-zero.${POD_NAMESPACE}.svc.cluster.local:5080 --idx $idx --replicas 3
+              exec dgraph zero --my=$(hostname -f):5080 --peer dgraph-zero-0.dgraph-zero.${POD_NAMESPACE}.svc.cluster.local:5080 --idx $idx --replicas 1
             fi
       terminationGracePeriodSeconds: 60
       volumes:
@@ -195,7 +195,7 @@ metadata:
   name: dgraph-alpha
 spec:
   serviceName: "dgraph-alpha"
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: dgraph-alpha
