@@ -156,6 +156,9 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
+        envFrom:
+        - configMapRef:
+            name: env-values
         command:
           - bash
           - "-c"
